@@ -56,7 +56,7 @@ export const onRequestPost = async (context: { request: Request; env: Env }) => 
     return jsonResponse({ error: 'Invalid email address' }, 400);
   }
 
-  const toEmail = env.CONTACT_TO_EMAIL || 'hello@vafaill.co.uk';
+  const toEmail = env.CONTACT_TO_EMAIL || 'berkay.aslan@vafaill.co.uk';
 
   const resendResponse = await fetch('https://api.resend.com/emails', {
     method: 'POST',

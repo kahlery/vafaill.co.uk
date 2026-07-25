@@ -36,7 +36,7 @@
 
       <div class="detail">
         <span class="label">Email</span>
-        <a href="mailto:hello@vafaill.co.uk">hello@vafaill.co.uk</a>
+        <a href="mailto:berkay.aslan@vafaill.co.uk">berkay.aslan@vafaill.co.uk</a>
       </div>
       <div class="detail">
         <span class="label">Registered office</span>
@@ -71,7 +71,7 @@
         {#if status === 'error'}
           <p class="form-error">
             Something went wrong sending your message. Please try again, or email us directly at
-            <a href="mailto:hello@vafaill.co.uk">hello@vafaill.co.uk</a>.
+            <a href="mailto:berkay.aslan@vafaill.co.uk">berkay.aslan@vafaill.co.uk</a>.
           </p>
         {/if}
         <button type="submit" class="btn btn-primary submit" disabled={status === 'sending'}>
