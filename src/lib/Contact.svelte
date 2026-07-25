@@ -2,12 +2,24 @@
   let name = $state('');
   let email = $state('');
   let message = $state('');
-  let sent = $state(false);
+  let status = $state<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  function submit(e: SubmitEvent) {
+  async function submit(e: SubmitEvent) {
     e.preventDefault();
     if (!name || !email || !message) return;
-    sent = true;
+
+    status = 'sending';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      status = 'sent';
+    } catch {
+      status = 'error';
+    }
   }
 </script>
 
@@ -37,7 +49,7 @@
     </div>
 
     <form class="panel" onsubmit={submit}>
-      {#if sent}
+      {#if status === 'sent'}
         <div class="success">
           <div class="check" aria-hidden="true">✓</div>
           <h3>Message received</h3>
@@ -56,7 +68,15 @@
           <label for="message">Project details</label>
           <textarea id="message" rows="5" bind:value={message} placeholder="Tell us a little about what you're looking to build..." required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary submit">Send message</button>
+        {#if status === 'error'}
+          <p class="form-error">
+            Something went wrong sending your message. Please try again, or email us directly at
+            <a href="mailto:hello@vafaill.co.uk">hello@vafaill.co.uk</a>.
+          </p>
+        {/if}
+        <button type="submit" class="btn btn-primary submit" disabled={status === 'sending'}>
+          {status === 'sending' ? 'Sending…' : 'Send message'}
+        </button>
       {/if}
     </form>
   </div>
@@ -144,9 +164,23 @@
     border-color: var(--accent);
   }
 
+  .form-error {
+    font-size: 14px;
+    color: #b3261e;
+  }
+
+  .form-error a {
+    text-decoration: underline;
+  }
+
   .submit {
     margin-top: 4px;
     width: 100%;
+  }
+
+  .submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   .success {
