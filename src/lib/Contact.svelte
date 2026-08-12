@@ -83,6 +83,11 @@
 </section>
 
 <style>
+  section {
+    min-height: 0;
+    padding-bottom: 64px;
+  }
+
   .contact-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;

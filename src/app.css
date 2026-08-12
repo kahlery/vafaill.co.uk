@@ -140,19 +140,28 @@ button {
 }
 
 section {
-  padding: 120px 0;
+  padding: 88px 0;
   position: relative;
+  scroll-margin-top: 76px;
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+}
+
+section > .container {
+  width: 100%;
 }
 
 @media (max-width: 900px) {
   section {
     padding: 80px 0;
+    min-height: 0;
   }
 }
 
 .section-head {
   max-width: 640px;
-  margin: 0 0 56px;
+  margin: 0 0 40px;
 }
 
 .section-head.center {

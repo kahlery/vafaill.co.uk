@@ -15,8 +15,8 @@
     <div class="col">
       <span class="heading">Site</span>
       <a href="#services">Services</a>
+      <a href="#products">Products</a>
       <a href="#about">About</a>
-      <a href="#work">Approach</a>
       <a href="#contact">Contact</a>
     </div>
 
@@ -40,14 +40,14 @@
   footer {
     border-top: 1px solid var(--border);
     background: var(--bg-alt);
-    padding-top: 72px;
+    padding-top: 48px;
   }
 
   .footer-inner {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1.4fr;
     gap: 40px;
-    padding-bottom: 56px;
+    padding-bottom: 36px;
   }
 
   .brand p {
@@ -100,7 +100,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 24px 0;
+    padding: 16px 0;
     border-top: 1px solid var(--border);
     font-size: 13px;
     color: var(--text-dim);
