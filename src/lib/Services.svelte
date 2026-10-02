@@ -13,7 +13,7 @@
     {
       icon: 'M4 4h16v4H4zM4 12h10v8H4zM17 12h3v8h-3z',
       title: 'Business & domestic software',
-      desc: 'Custom software for businesses and individuals — internal tools, automation, and applications tailored to real workflows.',
+      desc: 'Software for businesses and individuals — productivity tools, automation and everyday applications, published as our own products.',
     },
     {
       icon: 'M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12a9 9 0 0 0 18 0 9 9 0 0 0-18 0Z',
@@ -23,8 +23,8 @@
   ];
 </script>
 
-<section id="services">
-  <div class="container">
+<section id="services" class="section bg-white">
+  <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">What we do</p>
       <h2>Focused engineering, four disciplines deep</h2>
@@ -35,78 +35,18 @@
       </p>
     </div>
 
-    <div class="grid">
+    <div class="grid grid-cols-2 gap-5 max-[760px]:grid-cols-1">
       {#each services as s}
-        <div class="card">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <div class="rounded-2xl bg-alt p-8 transition-transform duration-200 hover:-translate-y-0.5">
+          <div class="mb-5 flex size-[46px] items-center justify-center rounded-xl bg-soft text-ink">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d={s.icon} />
             </svg>
           </div>
-          <h3>{s.title}</h3>
-          <p>{s.desc}</p>
+          <h3 class="mb-2.5 text-[17px]">{s.title}</h3>
+          <p class="text-[13px] text-body">{s.desc}</p>
         </div>
       {/each}
     </div>
   </div>
 </section>
-
-<style>
-  section {
-    background: var(--bg-alt);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-  }
-
-  .icon-wrap {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    background: var(--accent-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: var(--accent-2);
-  }
-
-  .icon-wrap svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  h3 {
-    font-size: 19px;
-    margin-bottom: 10px;
-  }
-
-  .card p {
-    font-size: 15px;
-    color: var(--text);
-  }
-
-  @media (max-width: 760px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
