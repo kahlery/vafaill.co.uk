@@ -23,7 +23,7 @@
   }
 </script>
 
-<section id="contact" class="section min-h-0 border-t border-dashed border-ink/25 bg-white pb-16">
+<section id="contact" class="section rule min-h-0 bg-white pb-16">
   <div class="wrap grid grid-cols-[0.9fr_1.1fr] gap-16 max-[900px]:grid-cols-1 max-[900px]:gap-10">
     <div>
       <p class="eyebrow">Get in touch</p>

@@ -2,7 +2,7 @@
   type Segment = [text: string, style: string];
 
   const stats: [key: string, value: string | number][] = [
-    ['products_live', 1],
+    ['products_live', 2],
     ['in_development', 1],
     ['years_building', 3],
   ];
@@ -61,7 +61,7 @@
   });
 </script>
 
-<section id="top" class="section overflow-hidden bg-white pt-30 pb-25 max-[900px]:min-h-[calc(100svh-56px)] max-[760px]:pt-14">
+<section id="top" class="section overflow-hidden bg-white pt-30 pb-25 max-[900px]:min-h-[calc(100svh-44px)] max-[760px]:pt-14">
   <div class="wrap">
     <p class="eyebrow">
       <svg class="h-[15px] w-[25px] flex-none rounded-[2px]" width="25" height="15" viewBox="0 0 50 30" role="img" aria-label="United Kingdom flag">
@@ -89,7 +89,7 @@
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#services" class="btn btn-ghost">See what we do</a>
+          <a href="#products" class="btn btn-ghost">See what we do</a>
         </div>
       </div>
 

@@ -2,7 +2,7 @@
   const year = new Date().getFullYear();
 </script>
 
-<footer class="border-t border-dashed border-ink/25 bg-white pt-12">
+<footer class="rule bg-white pt-12">
   <div class="wrap grid grid-cols-[1.4fr_1fr_1.4fr] gap-10 pb-9 max-[760px]:grid-cols-1 max-[760px]:gap-8">
     <div class="flex flex-col gap-3">
       <a href="#top" class="flex items-center gap-2.5 font-heading text-[17px] font-bold text-ink">
@@ -14,7 +14,6 @@
 
     <div class="flex flex-col gap-3 text-[13px] text-dim">
       <span class="mb-1 text-[12px] font-semibold text-ink">Site</span>
-      <a class="hover:text-ink" href="#services">Services</a>
       <a class="hover:text-ink" href="#products">Products</a>
       <a class="hover:text-ink" href="#about">About</a>
       <a class="hover:text-ink" href="#contact">Contact</a>

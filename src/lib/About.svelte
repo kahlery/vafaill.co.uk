@@ -13,7 +13,7 @@
       .join('');
 </script>
 
-<section id="about" class="section border-t border-dashed border-ink/25 bg-white">
+<section id="about" class="section rule bg-white">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">About Vafaill</p>
