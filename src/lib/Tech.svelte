@@ -19,7 +19,7 @@
 </script>
 
 <div role="region" aria-label="Technologies we build with">
-  <div class="overflow-hidden bg-ink py-4">
+  <div class="overflow-hidden bg-black py-4">
     <div class="flex w-max animate-marquee motion-reduce:animate-none hover:[animation-play-state:paused]">
       {#each [0, 1, 2, 3] as copy}
         <ul class="flex shrink-0" aria-hidden={copy > 0}>

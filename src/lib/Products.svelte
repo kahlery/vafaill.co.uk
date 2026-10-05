@@ -4,19 +4,22 @@
       name: 'Shiftra',
       logo: '/logo/products/shiftra.png',
       tagline: 'Workforce management for shift-based teams.',
-      description: 'Schedule shifts, track attendance, and manage your team from one place.',
-      href: 'https://shiftra.one',
+      links: [{ label: 'Visit', href: 'https://shiftra.one' }],
     },
     {
       name: 'Devflare',
       logo: '/logo/products/devflare.svg',
-      tagline: 'Game analytics for developers.',
-      description: 'Track events with a game client SDK, sync store data from Google Play and the App Store, and query it all with a SQL console.',
-      href: 'https://devflare.dev',
+      tagline: 'The game backend, ready on day 0: live API, database, analytics and dashboards.',
+      links: [{ label: 'Visit', href: 'https://devflare.dev' }],
     },
     {
       name: 'Realm Hero: Kingdom Survival',
       tagline: 'A survival strategy game, currently in development.',
+      // TODO: replace with the real store URLs
+      links: [
+        { label: 'iOS', href: '#' },
+        { label: 'Android', href: '#' },
+      ],
     },
   ];
 </script>
@@ -36,7 +39,6 @@
         <thead>
           <tr class="text-[11px] font-semibold tracking-[0.06em] text-dim uppercase">
             <th class="px-6 py-3.5 font-semibold">Product</th>
-            <th class="px-6 py-3.5 font-semibold max-[760px]:hidden">About</th>
             <th class="px-6 py-3.5 text-right font-semibold">Link</th>
           </tr>
         </thead>
@@ -62,23 +64,22 @@
                   </div>
                 </div>
               </td>
-              <td class="max-w-[360px] px-6 py-5 text-[13px] text-body max-[760px]:hidden">{product.description ?? ''}</td>
-              <td class="px-6 py-5 text-right">
-                {#if product.href}
-                  <a
-                    class="group inline-flex items-center gap-1.5 text-[13px] font-semibold whitespace-nowrap text-ink"
-                    href={product.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Visit
-                    <svg class="size-4 transition-transform duration-200 group-hover:translate-x-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </a>
-                {:else}
-                  <span class="text-[13px] text-dim">—</span>
-                {/if}
+              <td class="px-6 py-2 text-right">
+                <div class="-mr-3 flex items-center justify-end gap-1">
+                  {#each product.links as link}
+                    <a
+                      class="group inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-[13px] font-semibold whitespace-nowrap text-ink"
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                      <svg class="size-4 transition-transform duration-200 group-hover:translate-x-[3px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  {/each}
+                </div>
               </td>
             </tr>
           {/each}
