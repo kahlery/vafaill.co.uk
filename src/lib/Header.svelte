@@ -11,7 +11,7 @@
   ];
 </script>
 
-<header class="sticky top-0 z-100 bg-black">
+<header class="sticky top-0 z-100 bg-ink">
   <div class="wrap flex h-11 items-center justify-between">
     <a href="#top" class="flex items-center gap-2.5 font-heading text-[17px] font-bold text-bg" onclick={closeMenu}>
       <img class="h-auto w-6 brightness-0 invert" src="/logo/mark.png" alt="" aria-hidden="true" />
@@ -42,7 +42,7 @@
   </div>
 
   {#if menuOpen}
-    <div class="absolute top-full right-4 mt-2 w-56 overflow-hidden rounded-xl border border-white/10 bg-black shadow-xl">
+    <div class="absolute top-full right-4 mt-2 w-56 overflow-hidden rounded-xl border border-white/10 bg-ink shadow-xl">
       <nav class="flex flex-col p-2" aria-label="Mobile">
         {#each links as link}
           <a href={link.href} class="rounded-lg px-3 py-3 text-[13px] font-medium text-bg/70" onclick={closeMenu}>{link.label}</a>

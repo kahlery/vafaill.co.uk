@@ -19,9 +19,6 @@
 </script>
 
 <div role="region" aria-label="Technologies we build with">
-  <div class="bg-white pb-3">
-    <p class="wrap font-mono text-[11px] uppercase tracking-[0.06em] text-dim">Tech we build with</p>
-  </div>
   <div class="overflow-hidden bg-ink py-4">
     <div class="flex w-max animate-marquee motion-reduce:animate-none hover:[animation-play-state:paused]">
       {#each [0, 1, 2, 3] as copy}
