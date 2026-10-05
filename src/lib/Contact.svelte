@@ -2,23 +2,77 @@
   let name = $state('');
   let email = $state('');
   let message = $state('');
-  let status = $state<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  let company = $state('');
+  let token = $state('');
+  let status = $state<'idle' | 'sending' | 'sent' | 'error' | 'unverified'>('idle');
+
+  const siteKey: string | undefined = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+  const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+
+  let widgetId: string | undefined;
+  let scriptLoading: Promise<void> | undefined;
+
+  function loadTurnstile(): Promise<void> {
+    if (window.turnstile) return Promise.resolve();
+    scriptLoading ??= new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = TURNSTILE_SRC;
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('Turnstile failed to load'));
+      document.head.appendChild(script);
+    });
+    return scriptLoading;
+  }
+
+  function turnstile(node: HTMLElement) {
+    let removed = false;
+    loadTurnstile()
+      .then(() => {
+        if (removed || !siteKey) return;
+        widgetId = window.turnstile?.render(node, {
+          sitekey: siteKey,
+          theme: 'light',
+          size: 'flexible',
+          callback: (value) => (token = value),
+          'expired-callback': () => (token = ''),
+          'error-callback': () => (token = ''),
+        });
+      })
+      .catch(() => {});
+
+    return () => {
+      removed = true;
+      if (widgetId) window.turnstile?.remove(widgetId);
+      widgetId = undefined;
+    };
+  }
+
+  function resetTurnstile() {
+    token = '';
+    if (widgetId) window.turnstile?.reset(widgetId);
+  }
 
   async function submit(e: SubmitEvent) {
     e.preventDefault();
     if (!name || !email || !message) return;
+    if (siteKey && !token) {
+      status = 'unverified';
+      return;
+    }
 
     status = 'sending';
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, company, token }),
       });
       if (!res.ok) throw new Error('Request failed');
       status = 'sent';
     } catch {
       status = 'error';
+      resetTurnstile();
     }
   }
 </script>
@@ -59,6 +113,16 @@
           <label class="text-[12px] font-medium text-ink" for="message">Message</label>
           <textarea class="field resize-y" id="message" rows="5" bind:value={message} placeholder="How can we help?" required></textarea>
         </div>
+        <div class="absolute -left-[9999px]" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" type="text" bind:value={company} tabindex="-1" autocomplete="off" />
+        </div>
+        {#if siteKey}
+          <div {@attach turnstile}></div>
+        {/if}
+        {#if status === 'unverified'}
+          <p class="text-[13px] text-danger">Please complete the verification check before sending.</p>
+        {/if}
         {#if status === 'error'}
           <p class="text-[13px] text-danger">
             Something went wrong sending your message. Please try again, or email us directly at
