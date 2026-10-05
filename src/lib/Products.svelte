@@ -44,7 +44,7 @@
         </thead>
         <tbody>
           {#each products as product}
-            <tr class="group/row align-middle [&>td]:bg-alt [&>td]:transition-colors [&>td]:duration-200 hover:[&>td]:bg-hover [&>td:first-child]:rounded-l-xl [&>td:last-child]:rounded-r-xl">
+            <tr class="group/row align-middle [&>td]:bg-alt [&>td]:transition-colors [&>td]:duration-200 hover:[&>td]:bg-hover [&>td:first-child]:rounded-l-widget [&>td:last-child]:rounded-r-widget">
               <td class="px-6 py-5">
                 <div class="flex items-center gap-4">
                   {#if product.logo}
@@ -68,7 +68,7 @@
                 <div class="-mr-3 flex items-center justify-end gap-1">
                   {#each product.links as link}
                     <a
-                      class="group inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-[13px] font-semibold whitespace-nowrap text-ink"
+                      class="group inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-[13px] font-semibold whitespace-nowrap text-ink"
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"

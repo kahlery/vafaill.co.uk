@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <form class="flex flex-col gap-5 rounded-[20px] bg-alt p-10" onsubmit={submit}>
+    <form class="flex flex-col gap-5 rounded-widget bg-alt p-10" onsubmit={submit}>
       {#if status === 'sent'}
         <div class="py-10 text-center">
           <div class="mx-auto mb-5 flex size-[52px] items-center justify-center rounded-full bg-primary text-[22px] font-bold text-bg" aria-hidden="true">✓</div>

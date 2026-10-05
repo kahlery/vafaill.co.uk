@@ -36,9 +36,9 @@
       {#each team as person}
         <li>
           {#if person.photo}
-            <img class="aspect-square w-full rounded-2xl object-cover" src={person.photo} alt={person.name} />
+            <img class="aspect-square w-full rounded-widget object-cover" src={person.photo} alt={person.name} />
           {:else}
-            <div class="flex aspect-square w-full rounded-2xl items-center justify-center bg-soft font-mono text-[28px] text-dim" aria-hidden="true">
+            <div class="flex aspect-square w-full rounded-widget items-center justify-center bg-soft font-mono text-[28px] text-dim" aria-hidden="true">
               {initials(person.name)}
             </div>
           {/if}

@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div class="rounded-2xl bg-ink p-6 font-mono text-[12px] leading-[1.9] text-bg/80">
+      <div class="rounded-widget bg-ink p-6 font-mono text-[12px] leading-[1.9] text-bg/80">
         <dl class="sr-only">
           {#each stats as [key, value]}
             <dt>{key.replace('_', ' ')}</dt>

@@ -15,6 +15,8 @@
     --color-primary: #201f1c;
     --color-primary-hover: #3a3833;
 
+    --radius-widget: 28px;
+
     --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --font-heading: var(--font-sans);
     --animate-blink: blink 1s steps(1) infinite;
@@ -94,7 +96,7 @@
     }
 
     .btn {
-        @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-[10px] px-6 py-[13px] text-[13px] font-semibold transition active:translate-y-px;
+        @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-[13px] text-[13px] font-semibold transition active:translate-y-px;
     }
 
     .btn-primary {
@@ -106,6 +108,6 @@
     }
 
     .field {
-        @apply rounded-[10px] bg-surface px-3.5 py-3 font-[inherit] text-[13px] text-ink transition-colors duration-200 outline-none focus:bg-bg;
+        @apply rounded-widget bg-surface px-5 py-3 font-[inherit] text-[13px] text-ink transition-colors duration-200 outline-none focus:bg-bg;
     }
 }

@@ -26,7 +26,7 @@
 
     <div class="hidden items-center max-[860px]:flex">
       <button
-        class="hidden size-9 cursor-pointer items-center justify-center rounded-lg bg-white/10 max-[860px]:flex"
+        class="hidden size-9 cursor-pointer items-center justify-center rounded-full bg-white/10 max-[860px]:flex"
         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={menuOpen}
         onclick={() => (menuOpen = !menuOpen)}
@@ -42,10 +42,10 @@
   </div>
 
   {#if menuOpen}
-    <div class="absolute top-full right-4 mt-2 w-56 overflow-hidden rounded-xl border border-white/10 bg-black shadow-xl">
+    <div class="absolute top-full right-4 mt-2 w-56 overflow-hidden rounded-widget border border-white/10 bg-black shadow-xl">
       <nav class="flex flex-col p-2" aria-label="Mobile">
         {#each links as link}
-          <a href={link.href} class="rounded-lg px-3 py-3 text-[13px] font-medium text-bg/70" onclick={closeMenu}>{link.label}</a>
+          <a href={link.href} class="rounded-full px-4 py-3 text-[13px] font-medium text-bg/70" onclick={closeMenu}>{link.label}</a>
         {/each}
       </nav>
     </div>
